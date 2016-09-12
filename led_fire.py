@@ -46,8 +46,8 @@ def generate_rgb_color(i):
 
     if k == 0:
         r = r + i
-        if r > 255:
-            r = 255
+        if r > 245:
+            r = 245
         g = g + i
         if g > 55:
             g = 55
@@ -60,7 +60,7 @@ def generate_rgb_color(i):
             g = 15
 
     b = 0
-    t = 0.1
+    t = 0.05
 
     return (r, g, b, t)
 
