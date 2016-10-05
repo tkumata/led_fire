@@ -4,6 +4,8 @@
 import time
 import random
 import grovepi
+import signal
+import sys
 
 pin7 = 7
 numleds = 1
@@ -36,6 +38,12 @@ fire_pattern_3 = [
     (255,182,5),
     (189,67,67)
     ]
+
+
+def signal_term_handler(signal, frame):
+    print 'got SIGTERM'
+    grovepi.chainableRgbLed_test(pin7, numleds, 0)
+    sys.exit(0)
 
 
 def generate_rgb_color(i):
@@ -75,6 +83,7 @@ if __name__ == '__main__':
             grovepi.chainableRgbLed_pattern(pin7, 0, 0)
             int = int + 1
             #print("%d, %d, %d") % (r, g, b)
+            signal.signal(signal.SIGTERM, signal_term_handler)
             time.sleep(t)
         except KeyboardInterrupt:
             grovepi.chainableRgbLed_test(pin7, numleds, 0)
