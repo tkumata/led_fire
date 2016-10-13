@@ -17,6 +17,11 @@
 ちり紙を RGB LED に軽く被せてください。
 
 
+## Memo
+```
+nohup ~/bin/led_fire/led_fire.py > /dev/null 2>&1 &
+```
+
 ## 今後
 
  - ドットマトリクス LED でやってみたい。
