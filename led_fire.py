@@ -74,6 +74,8 @@ def generate_rgb_color(i):
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGTERM, signal_term_handler)
+
     while True:
         try:
             if int > 20:
@@ -83,7 +85,6 @@ if __name__ == '__main__':
             grovepi.chainableRgbLed_pattern(pin7, 0, 0)
             int = int + 1
             #print("%d, %d, %d") % (r, g, b)
-            signal.signal(signal.SIGTERM, signal_term_handler)
             time.sleep(t)
         except KeyboardInterrupt:
             grovepi.chainableRgbLed_test(pin7, numleds, 0)
